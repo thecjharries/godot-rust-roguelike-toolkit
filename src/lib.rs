@@ -14,6 +14,7 @@
 
 use godot::prelude::*;
 
+mod map;
 pub mod prng;
 
 struct GodotRustRoguelikeToolkit;
