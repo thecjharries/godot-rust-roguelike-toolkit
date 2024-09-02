@@ -46,6 +46,13 @@ impl Rectangle {
             || self.bottom_right.y < other.top_left.y
             || other.bottom_right.y < self.top_left.y)
     }
+
+    pub fn center(&self) -> Point {
+        Point::new(
+            self.top_left.x + self.width() / 2,
+            self.top_left.y + self.height() / 2,
+        )
+    }
 }
 
 #[cfg(not(tarpaulin_include))]
@@ -99,5 +106,21 @@ mod tests {
         assert!(rectangle.intersects(&other));
         let other = Rectangle::new(Point::new(4, 5), Point::new(5, 6));
         assert!(!rectangle.intersects(&other));
+    }
+
+    #[test]
+    fn rectangles_know_their_center() {
+        let top_left = Point::new(1, 2);
+        let bottom_right = Point::new(3, 4);
+        let rectangle = Rectangle::new(top_left, bottom_right);
+        assert_eq!(rectangle.center(), Point::new(2, 3));
+        let top_left = Point::new(1, 2);
+        let bottom_right = Point::new(4, 5);
+        let rectangle = Rectangle::new(top_left, bottom_right);
+        assert_eq!(rectangle.center(), Point::new(2, 3));
+        let top_left = Point::new(1, 2);
+        let bottom_right = Point::new(5, 6);
+        let rectangle = Rectangle::new(top_left, bottom_right);
+        assert_eq!(rectangle.center(), Point::new(3, 4));
     }
 }
