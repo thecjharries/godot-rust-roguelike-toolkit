@@ -14,6 +14,8 @@
 
 use godot::prelude::*;
 
+pub mod prng;
+
 struct GodotRustRoguelikeToolkit;
 
 #[gdextension]
