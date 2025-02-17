@@ -1,2 +1,3 @@
-mod point;
-mod rectangle;
+pub mod grid;
+pub mod point;
+pub mod rectangle;
