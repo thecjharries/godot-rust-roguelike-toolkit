@@ -27,8 +27,15 @@ impl Prng {
         Self { seed, rng }
     }
 
-    pub fn roll(&mut self, sides: u64) -> u64 {
+    pub fn roll(&mut self, sides: usize) -> usize {
         self.rng.random_range(1..=sides)
+    }
+
+    pub fn between(&mut self, lower: usize, upper: usize) -> usize {
+        if lower > upper {
+            return self.rng.random_range(upper..=lower);
+        }
+        self.rng.random_range(lower..=upper)
     }
 }
 
@@ -48,9 +55,9 @@ mod tests {
         let mut prng = Prng::new(0);
         assert_eq!(1, prng.roll(1));
         assert_eq!(1, prng.roll(2));
-        assert_eq!(3, prng.roll(3));
-        assert_eq!(1, prng.roll(4));
-        assert_eq!(5, prng.roll(5));
+        assert_eq!(1, prng.roll(3));
+        assert_eq!(3, prng.roll(4));
+        assert_eq!(4, prng.roll(5));
         assert_eq!(1, prng.roll(6));
     }
 }
