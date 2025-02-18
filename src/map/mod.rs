@@ -30,7 +30,6 @@ impl MapError {
             MapError::MinimumRoomSizeMustBeSmallerThanGridSize => {
                 "Minimum room size must be smaller than grid size"
             }
-            _ => "An unknown error occurred",
         }
     }
 }
