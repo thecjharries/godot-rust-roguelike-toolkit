@@ -31,7 +31,7 @@ impl std::fmt::Display for Tile {
 pub struct Grid {
     width: usize,
     height: usize,
-    tiles: Vec<Vec<Tile>>,
+    pub tiles: Vec<Vec<Tile>>,
 }
 
 impl Grid {
