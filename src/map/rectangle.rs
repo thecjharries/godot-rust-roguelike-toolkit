@@ -35,15 +35,15 @@ impl Rectangle {
         }
     }
 
-    pub fn width(&self) -> i32 {
+    pub fn width(&self) -> usize {
         self.bottom_right.x - self.top_left.x
     }
 
-    pub fn height(&self) -> i32 {
+    pub fn height(&self) -> usize {
         self.bottom_right.y - self.top_left.y
     }
 
-    pub fn area(&self) -> i32 {
+    pub fn area(&self) -> usize {
         self.width() * self.height()
     }
 
